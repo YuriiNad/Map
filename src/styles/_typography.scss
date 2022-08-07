@@ -1,0 +1,42 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+* {
+	@apply box-border m-0 p-0
+}
+
+body {
+  @apply text-black;
+  font-family: Roboto sans-serif;
+}
+
+h1 {
+  @apply text-5xl font-bold;
+}
+
+h2 {
+  @apply text-black text-4xl font-bold;
+}
+
+h3 {
+  @apply text-3xxl font-bold;
+}
+
+h4 {
+  @apply text-3xl font-bold;
+}
+
+h6 {
+  @apply text-base font-bold text-black;
+}
+
+p {
+  @apply text-sm;
+}
+
+.disabled,
+:disabled {
+  @apply cursor-not-allowed pointer-events-none;
+}
+

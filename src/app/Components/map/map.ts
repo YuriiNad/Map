@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-map',
+  selector: 'm4p-map',
   templateUrl: './map.html',
 })
 export class MapComponent {

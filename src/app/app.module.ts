@@ -3,12 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MapComponent } from './map/map';
+import { MapComponent } from './Components/map/map';
+import { AsideMenuComponent } from './Components/aside-menu/aside-menu';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MapComponent
+    MapComponent,
+    AsideMenuComponent
   ],
   imports: [
     BrowserModule,

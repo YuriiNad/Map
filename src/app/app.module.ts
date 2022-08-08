@@ -1,22 +1,24 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MapComponent } from './Components/map/map';
-import { AsideMenuComponent } from './Components/aside-menu/aside-menu';
+import { MarkerService } from './providers/marker';
+import { ScreenService } from './providers/screen';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MapComponent,
-    AsideMenuComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    MarkerService,
+    ScreenService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

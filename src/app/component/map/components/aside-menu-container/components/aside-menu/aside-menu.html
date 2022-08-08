@@ -1,0 +1,25 @@
+<aside class="w-64 h-full bg-white rounded-lg overflow-y-auto ">
+
+	<header class="sticky top-0 bg-white">
+		<h5 class="py-[6px] px-4">Objects</h5>
+		<m4p-field
+			[control]="search"
+			(input)="searchItem()"
+		></m4p-field>
+	</header>
+
+
+	<section *ngFor="let objectTitle of marker.markersNames | filter : currentItem">
+		<div *ngIf="objectTitle; else emptyState">
+			<m4p-object 
+				[title]="objectTitle"
+				(onSelect)="select($event)"
+				[isSelected]="objectTitle === selectedObject"
+			></m4p-object>
+		</div>
+	</section>
+</aside>
+
+<ng-template #emptyState>
+	<p >No items are available.</p>
+</ng-template>

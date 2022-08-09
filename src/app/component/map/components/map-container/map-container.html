@@ -1,3 +1,27 @@
 <div class="w-full h-full">
 	<m4p-aside-menu-container></m4p-aside-menu-container>
+	<agm-map 
+		class="w-inherit h-inherit" 
+		[latitude]="marker.initCoordinates['lat']"
+		[longitude]="marker.initCoordinates['lon']"
+		[scaleControl]="true"
+		[disableDefaultUI]="true"
+		[clickableIcons]="false"
+		(tilesLoaded)="isLoading = false"
+		[zoom]="zoom"
+		>
+		<agm-marker
+			*ngFor="let item of marker.markers"
+			[latitude]="item.latitude"
+			[longitude]="item.longitude"
+			[iconUrl]="item.name === selectedMarker ? marker.SELECTED_MARKER_ICON : marker.MARKER_ICON"
+		></agm-marker>
+	</agm-map>
+</div>
+
+<div 
+	*ngIf="isLoading"
+	class="fixed top-0 right-0 w-full h-full bg-white z-50 flex items-center justify-center"
+>
+	<m4p-loader></m4p-loader>
 </div>

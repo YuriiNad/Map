@@ -1,15 +1,15 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'm4p-object',
-  templateUrl: './object.html',
+  selector: 'm4p-item',
+  templateUrl: './item.html',
 })
 export class ObjectComponent {
   @Output() onSelect = new EventEmitter();
-  @Input() title!: string;
+  @Input() name!: string;
   @Input() isSelected!: boolean;
 
   select(): void {
-    this.onSelect.emit(this.title);
+    this.onSelect.emit(this.name);
   }
 }

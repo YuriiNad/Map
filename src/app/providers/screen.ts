@@ -19,8 +19,8 @@ export class ScreenService {
     this.window = this.document.defaultView as Window;
   }
 
-  get desktopS(): boolean {
-    return this.screenWidth > ScreenSize.DesktopS;
+  get phone(): boolean {
+    return this.screenWidth <= ScreenSize.Phone;
   }
 
   protected get screenWidth(): number {

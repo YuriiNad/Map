@@ -7,7 +7,10 @@ const routes: Routes = [
     path: 'map', 
     loadChildren: () => import('./component/map/map.module').then(m => m.MapModule), 
   },
-  
+  {
+    path: '**',
+    redirectTo: 'map'
+  }
 ];
 
 @NgModule({

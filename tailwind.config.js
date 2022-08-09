@@ -22,6 +22,13 @@ module.exports = {
         white: '#ffffff',
         red: '#ff0000',
         porcelain: '#F2F2F2',
+        border: '#EDEDED',
+      },
+      animation: {
+        spin: 'spin 1s linear infinite',
+      },
+      height: {
+        'inherit': 'inherit',
       },
     },
   },

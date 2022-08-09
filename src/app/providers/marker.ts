@@ -1,15 +1,23 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
-interface Marker {
+export interface Marker {
   id: number,
   latitude: number,
   longitude: number,
   name: string,
 }
 
+interface InitCoordinates {
+  lat: number,
+  lon: number,
+}
+
+
 @Injectable()
 export class MarkerService {
-  currentMarkers: Marker[] = [
+  selectedMarker = new BehaviorSubject<string>('');
+  private readonly currentMarkers: Marker[] = [
     {
       id: 1,
       latitude: 50.760918,
@@ -70,14 +78,25 @@ export class MarkerService {
       longitude: 12.319029,
       name: "Honda"
     }
-  ]
+  ];
+  private _initCoordinates: InitCoordinates = {
+    lat: 49.842957,
+    lon: 24.031111,
+  }
+  readonly SELECTED_MARKER_ICON = './assets/icons/selected-marker.png';
+  readonly MARKER_ICON = './assets/icons/marker.png';
+  filteredMarkers: Marker[] = this.currentMarkers;
 
   get markers(): Marker[] {
-    return this.currentMarkers;
+    return this.filteredMarkers;
   }
 
-  get markersNames(): string[] {
-    const names = this.markers.map((el: Marker) => el.name);
-    return names;
+  get initCoordinates(): InitCoordinates {
+    return this._initCoordinates;
   }
+  
+  filterMarkers(value: string): void {
+    this.filteredMarkers = this.currentMarkers.filter((el: Marker) => el.name?.toLowerCase().includes(value?.toLowerCase()))
+  }
+
 }

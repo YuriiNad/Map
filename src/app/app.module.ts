@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MarkerService } from './providers/marker';
 import { ScreenService } from './providers/screen';
-import { FilterPipe } from './pipes/filter.pipe';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -14,6 +13,11 @@ import { FilterPipe } from './pipes/filter.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCawDz-TKGdLqMk-N7zZKrZRJxpfZKU32k',
+      language: 'EN'
+    }),
+    
   ],
   providers: [
     MarkerService,

@@ -1,4 +1,4 @@
-<aside class="w-64 h-full bg-white rounded-lg overflow-y-auto ">
+<aside class="w-44 xs:w-64 h-full bg-white rounded-lg overflow-y-auto">
 
 	<header class="sticky top-0 bg-white">
 		<h5 class="py-[6px] px-4">Objects</h5>
@@ -8,18 +8,19 @@
 		></m4p-field>
 	</header>
 
-
-	<section *ngFor="let objectTitle of marker.markersNames | filter : currentItem">
-		<div *ngIf="objectTitle; else emptyState">
-			<m4p-object 
-				[title]="objectTitle"
+	<section *ngIf="!isEmpty; else emptyState">
+		<div *ngFor="let item of marker.markers">
+			<m4p-item 
+				[name]="item.name"
 				(onSelect)="select($event)"
-				[isSelected]="objectTitle === selectedObject"
-			></m4p-object>
+				[isSelected]="item.name === selectedItem"
+			></m4p-item>
 		</div>
 	</section>
 </aside>
 
 <ng-template #emptyState>
-	<p >No items are available.</p>
+	<div class="w-full h-[calc(100vh-114px)] flex items-center justify-center">
+		<p >No objects are available.</p>
+	</div>
 </ng-template>

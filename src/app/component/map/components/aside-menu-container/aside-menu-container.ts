@@ -4,6 +4,4 @@ import { Component, OnInit } from '@angular/core';
   selector: 'm4p-aside-menu-container',
   templateUrl: './aside-menu-container.html',
 })
-export class AsideMenuContainerComponent {
-
-}
+export class AsideMenuContainerComponent {}

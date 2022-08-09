@@ -25,8 +25,7 @@ export class FieldComponent<T = unknown> {
     }
   }
 
-  get error():boolean {
+  get errors(): boolean {
     return !!this.control.errors
-    && 'required' in this.control.errors;
   }
 }

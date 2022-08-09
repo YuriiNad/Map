@@ -4,5 +4,4 @@ import { Component, OnInit } from '@angular/core';
   selector: 'm4p-loader',
   templateUrl: './loader.html',
 })
-export class LoaderComponent {
-}
+export class LoaderComponent {}

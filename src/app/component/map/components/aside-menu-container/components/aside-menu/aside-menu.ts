@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { MarkerService } from 'src/app/providers/marker';
 import { ScreenService } from 'src/app/providers/screen';
 
@@ -9,7 +9,7 @@ import { ScreenService } from 'src/app/providers/screen';
 })
 export class AsideMenuComponent implements OnInit {
   selectedItem!: string;
-  search!: FormControl<string>
+  search!: FormControl<string | null>
   currentItem!: string;
 
   constructor(
@@ -22,7 +22,7 @@ export class AsideMenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.search = new FormControl<string>('', { nonNullable: true });
+    this.search = new FormControl<string>('', Validators.pattern('[A-Za-z0-9]+'));
   }
 
   select(value: string): void {
@@ -31,6 +31,6 @@ export class AsideMenuComponent implements OnInit {
   }
 
   searchItem(): void {  
-    this.marker.filterMarkers(this.search.value);
+    this.marker.filterMarkers(this.search.value as string);
   }
 }

@@ -4,5 +4,4 @@ import { Component, OnInit } from '@angular/core';
   selector: 'm4p-not-supported',
   templateUrl: './not-supported.html',
 })
-export class NotSupportedComponent {
-}
+export class NotSupportedComponent {}

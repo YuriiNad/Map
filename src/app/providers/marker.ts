@@ -13,7 +13,6 @@ interface InitCoordinates {
   lon: number,
 }
 
-
 @Injectable()
 export class MarkerService {
   selectedMarker = new BehaviorSubject<string>('');
@@ -82,7 +81,7 @@ export class MarkerService {
   private _initCoordinates: InitCoordinates = {
     lat: 49.842957,
     lon: 24.031111,
-  }
+  };
   readonly SELECTED_MARKER_ICON = './assets/icons/selected-marker.png';
   readonly MARKER_ICON = './assets/icons/marker.png';
   filteredMarkers: Marker[] = this.currentMarkers;
@@ -96,7 +95,7 @@ export class MarkerService {
   }
   
   filterMarkers(value: string): void {
-    this.filteredMarkers = this.currentMarkers.filter((el: Marker) => el.name?.toLowerCase().includes(value?.toLowerCase()))
+    this.filteredMarkers = this.currentMarkers.filter((el: Marker) => el.name?.toLowerCase().includes(value?.toLowerCase()));
   }
 
 }
